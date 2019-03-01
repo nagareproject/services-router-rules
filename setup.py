@@ -31,6 +31,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     use_scm_version=True,
+    setup_requires=['setuptools_scm'],
     install_requires=[
         'webob', 'nagare-peak-rules',
         'nagare-services', 'nagare-server-http'
