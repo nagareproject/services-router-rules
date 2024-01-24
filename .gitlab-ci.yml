@@ -1,7 +1,7 @@
 # Encoding: utf-8
 
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2024 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -9,9 +9,8 @@
 # this distribution.
 # --
 
-image: docker-registry.net-ng.com/nng/dind-ubuntu:7
-
 tests:
   script:
-    - pip2 install flake8
-    - flake8 nagare
+    - pip2 install ruff
+    - ruff format --check nagare
+    - ruff nagare

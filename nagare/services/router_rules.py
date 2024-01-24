@@ -1,7 +1,7 @@
 # Encoding: utf-8
 
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2024 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -11,14 +11,16 @@
 
 from webob import exc
 from peak.rules import when
+
 from nagare.services import plugin
 
 
 class Router(plugin.Plugin):
-    """A service wrapped around the router
+    """A service wrapped around the router.
 
     Being now a service, the router can be injected
     """
+
     def create_dispatch_args(self, request, response, **params):
         path_info = request.path_info.strip('/')
         url = path_info.split('/') if path_info else ()
@@ -30,7 +32,7 @@ class Router(plugin.Plugin):
 
 
 def route(o, url, http_method, request, response):
-    """Fallback when no route is found
+    """Fallback when no route is found.
 
     In:
       - ``o`` -- the object
@@ -43,7 +45,7 @@ def route(o, url, http_method, request, response):
 
 
 def route_for(cls, cond=None, methods=('GET', 'HEAD')):
-    """Decorator helper to register an URL for a class of objects
+    """Decorator helper to register an URL for a class of objects.
 
     In:
       - ``cls`` -- the class

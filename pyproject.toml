@@ -1,5 +1,73 @@
+# =-
+# (C)opyright Net-ng 2008-2024
+#
+# This is Net-ng proprietary source code
+# Any reproduction modification or use without prior written
+# approval from Net-ng is strictly forbidden.
+# =-
+
 [build-system]
 requires = ['setuptools', 'wheel', 'setuptools_scm']
 build-backend = 'setuptools.build_meta'
 
 [tool.setuptools_scm]
+
+[project]
+name = 'nagare-services-router-rules'
+dynamic = ['version']
+description = 'REST url router service'
+authors = [
+    {name = 'Net-ng'},
+    {email = 'contact@net-ng.com'}
+]
+license = {file = 'LICENSE.txt'}
+requires-python = '>=3.7'
+dependencies = [
+    'webob',
+    'nagare-peak-rules',
+    'nagare-services',
+    'nagare-server-http'
+]
+[project.readme]
+file = 'README.rst'
+content-type = 'text/x-rst'
+
+[project.optional-dependencies]
+dev = [
+    'sphinx',
+    'sphinx_rtd_theme',
+    'pre-commit',
+    'ruff',
+    'pytest',
+    'twine'
+]
+
+[project.urls]
+Homepage = 'https://nagare.org'
+Documentation = 'https://nagare.org/doc'
+Source = 'https://github.com/nagareproject/services-router-rules'
+Tracker = 'https://github.com/nagareproject/services-router-rules/issues'
+
+[tool.ruff]
+select = ['C4', 'COM', 'D', 'E', 'ERA', 'F', 'I', 'ISC', 'INP', 'PIE', 'Q', 'S', 'SIM', 'TID', 'W', 'YTT']
+ignore = ['COM812', 'D10', 'ISC001']
+line-length = 120
+src = ['src']
+
+[tool.ruff.per-file-ignores]
+'*_test.py' = ['S101', 'S108']
+
+[tool.ruff.flake8-quotes]
+inline-quotes = 'single'
+
+[tool.ruff.pydocstyle]
+convention = 'google'
+
+[tool.ruff.isort]
+length-sort = true
+
+[tool.ruff.format]
+quote-style = 'single'
+
+[tool.pytest.ini_options]
+testpaths = ['tests']
