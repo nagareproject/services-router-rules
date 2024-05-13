@@ -13,4 +13,4 @@ tests:
   script:
     - pip2 install ruff
     - ruff format --check nagare
-    - ruff nagare
+    - ruff check nagare
