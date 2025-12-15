@@ -20,7 +20,6 @@ tests:
 qa:
 	python -m ruff check nagare
 	python -m ruff format --check nagare
-	# $(MAKE) tests
 
 qa-fix:
 	python -m ruff check --fix nagare

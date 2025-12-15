@@ -1,7 +1,5 @@
-# Encoding: utf-8
-
 # --
-# Copyright (c) 2008-2024 Net-ng.
+# Copyright (c) 2014-2025 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -61,7 +59,7 @@ def route_for(cls, cond=None, methods=('GET', 'HEAD')):
         conds.append((cls,))
 
     if cond:
-        conds.append('isinstance(o, %s) and (%s)' % (cls.__name__, cond))
+        conds.append(f'isinstance(o, {cls.__name__}) and ({cond})')
 
     if methods:
         conds.append('(http_method in %r)' % (methods,))
